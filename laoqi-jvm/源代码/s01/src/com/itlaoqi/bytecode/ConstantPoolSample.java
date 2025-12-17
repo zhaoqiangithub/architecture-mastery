@@ -5,7 +5,7 @@ package com.itlaoqi.bytecode;
 public class ConstantPoolSample {
     private final String name;
     private final int age;
-    private final double temp = 0.0;
+    private final double temp = 0.1;
     public ConstantPoolSample(String name , int age){
         this.name = name;
         this.age = age;
