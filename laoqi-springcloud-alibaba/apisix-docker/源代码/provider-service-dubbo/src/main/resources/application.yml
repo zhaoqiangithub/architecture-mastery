@@ -1,0 +1,25 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: provider-service
+  cloud:
+    nacos:
+      server-addr: 192.168.31.231:8848
+      username: nacos
+      password: nacos
+dubbo:
+  application:
+    name: provider-service-dubbo
+  registry:
+    address: nacos://192.168.31.231:8848
+    username: nacos
+    password: nacos
+  protocol:
+    name: dubbo
+    port: 20880
+  scan:
+    base-packages:com.italoqi.providerservicedubbo.dubbo.impl
+logging:
+  level:
+    root: debug

@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: rm-1
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.31.230:33061/rm-db-1
+    username: root
+    password: root
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.31.230:8848
+        username: nacos
+        password: nacos
+seata:
+  enabled: true
+  tx-service-group: my_test_tx_group
+  enable-auto-data-source-proxy: true
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+    grouplist:
+      default: 192.168.31.230:8091
+    enable-degrade: false
+    disable-global-transaction: false
+server:
+  port: 8001

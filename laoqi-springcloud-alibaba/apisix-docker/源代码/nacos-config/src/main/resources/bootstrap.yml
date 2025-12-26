@@ -1,0 +1,13 @@
+# dataId = tax-service-dev.yml
+spring:
+  application:
+    name: tax-service
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        file-extension: yml
+        server-addr: 192.168.31.230:8848
+        username: nacos
+        password: nacos

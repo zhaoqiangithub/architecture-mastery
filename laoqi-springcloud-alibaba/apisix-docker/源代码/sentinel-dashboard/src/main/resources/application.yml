@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: sentinel-sample
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 192.168.31.233:8858
+      eager: true
+    nacos:
+      server-addr: 192.168.31.231:8848
+      username: nacos
+      password: nacos
+  jackson:
+    default-property-inclusion: non_null
+server:
+  port: 80
+logging:
+  level:
+    root: info

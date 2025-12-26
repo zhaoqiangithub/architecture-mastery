@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: sentinel-sample
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 192.168.31.233:8858
+      eager: true
+      datasource:
+        flow:
+          nacos:
+            server-addr: ${spring.cloud.nacos.server-addr}
+            dataId: ${spring.application.name}-flow-rules
+            groupId: SAMPLE_GROUP
+            rule-type: flow
+            username: nacos
+            password: nacos
+        degrade:
+          nacos:
+            server-addr: ${spring.cloud.nacos.server-addr}
+            dataId: ${spring.application.name}-degrade-rules
+            groupId: SAMPLE_GROUP
+            rule-type: degrade
+    nacos:
+      server-addr: 192.168.31.231:8848
+      username: nacos
+      password: nacos
+  jackson:
+    default-property-inclusion: non_null
+server:
+  port: 80
+logging:
+  level:
+    root: info
+management:
+  endpoints:
+    web: #将所有可用的监控指标项对外暴露
+      exposure: #可以访问 /actuator/sentinel进行查看Sentinel监控项
+        include: '*'
